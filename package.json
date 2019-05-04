@@ -1,0 +1,32 @@
+{
+  "name": "mtg-market",
+  "version": "1.0.0",
+  "description": "A magic the gathering card database",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "set NODE_ENV=test && jasmine",
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaizokuKing7/MtG-Market.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaizokuKing7/MtG-Market/issues"
+  },
+  "homepage": "https://github.com/KaizokuKing7/MtG-Market#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^5.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.88.0",
+    "sequelize": "^4.32.6",
+    "sequelize-cli": "^5.4.0"
+  }
+}

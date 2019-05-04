@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head.ejs%>
+</head>
+
+<body>
+    <% include ../partials/nav.ejs %>
+    <main class="container">
+        <header class="jumbotron my-4">
+            <h1 class="display-3">Add cards to this deck</h1>
+            <form method="POST" action="/cards/search">
+                <div class="form-group" id="cardName">
+                    <input class="form-control" type="text" name="name" placeholder="Enter card name" />
+                </div>
+                <div class="form-group" id=ruleText>
+                    <input class="form-control" type="text" name="rules" placeholder="rule text" />
+                </div>
+                <div class="form-group" id="rarity">
+                    <label>Select a Rarity</label><br />
+                    <div class="form-check form-check-inline">
+                        <input name="rarity" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="M">
+                        <label class="form-check-label" for="inlineCheckbox1">Mythic</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="rarity" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="R">
+                        <label class="form-check-label" for="inlineCheckbox1">Rare</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="rarity" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="U">
+                        <label class="form-check-label" for="inlineCheckbox1">Uncommon</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="rarity" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="C">
+                        <label class="form-check-label" for="inlineCheckbox1">common</label>
+                    </div>
+                </div>
+                <div class="form-group" id="type">
+                    <label>Select a type</label><br />
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Creature">
+                        <label class="form-check-label" for="inlineCheckbox1">Creature</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Artifact">
+                        <label class="form-check-label" for="inlineCheckbox1">Artifact</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Enchantment">
+                        <label class="form-check-label" for="inlineCheckbox1">Enchantment</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Instant">
+                        <label class="form-check-label" for="inlineCheckbox1">Instant</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Sorcery">
+                        <label class="form-check-label" for="inlineCheckbox1">Sorcery</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Planeswalker">
+                        <label class="form-check-label" for="inlineCheckbox1">Planeswalker</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="type" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Land">
+                        <label class="form-check-label" for="inlineCheckbox1">Land</label>
+                    </div>
+                </div>
+                <div class="form-group" id="subtype">
+                        <input name="Subtype" placeholder="Enter a SubType" class="form-control" type="text"/>
+                </div>
+                <div class="form-group" id="color">
+                    <label>Select a color</label><br />
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="White">
+                        <label class="form-check-label" for="inlineCheckbox1">White</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Blue">
+                        <label class="form-check-label" for="inlineCheckbox1">Blue</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Black">
+                        <label class="form-check-label" for="inlineCheckbox1">Black</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Red">
+                        <label class="form-check-label" for="inlineCheckbox1">Red</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Green">
+                        <label class="form-check-label" for="inlineCheckbox1">Green</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="color" class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                            value="Colorless">
+                        <label class="form-check-label" for="inlineCheckbox1">Colorless</label>
+                    </div>
+                </div>
+                <button type=" submit" class="btn btn-primary">Submit</button>
+            </form>
+        </header>
+        <div class="index">
+            <% if (err) { %>
+                <h2><%= err%></h2>
+            <% }else {cards.forEach((card)=> {if (!!card){%>
+            <a href="#"><img src="<%=card.image%>"></a>
+
+            <%}})}%>
+        </div>
+    </main>
+    <% include ../partials/script.ejs %>
+</body>
+
+</html>
